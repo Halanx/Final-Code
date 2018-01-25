@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104548068-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-104548068-1');
-</script>
-
     <!-- Title -->
     <title>Halanx </title>
 
@@ -22,15 +12,15 @@
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#ffffff">
     <meta name="keywords" content="groceries,foods,meals">
-    <meta name="description" content="Know your neighborhood happenings, and order from neighborhood businesses like grocery stores and restaurants,and get delivered in as little as an hour.">
+    <meta name="description" content="Get groceries and meals delivered from your favourite store and restaurant in as little as an hour.">
     <!-- Halanx Twitter -->
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Halanx-Connecting neighborhood" />
+    <meta property="og:description" content="Halanx" />
     <meta property="og:url" content="http://halanx.com" />
-    <meta property="og:site_name" content="Halanx-Connecting neighborhood">
+    <meta property="og:site_name" content="Halanx">
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="Know your neighborhood happenings, and order from neighborhood businesses like grocery stores and restaurants,and get delivered in as little as an hour."/>
-    <meta name="twitter:title" content="Halanx-Connecting neighborhood">
+    <meta name="twitter:description" content="Get groceries and meals delivered from your favourite store and restaurant is as little as an hour"/>
+    <meta name="twitter:title" content="Halanx">
   
     <!-- Title Icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
@@ -476,6 +466,9 @@ updateMarkerPosition(marker.getPosition());
             var places = new google.maps.places.Autocomplete(document.getElementById('txtPlaces'));
             google.maps.event.addListener(places, 'place_changed', function () {
                 var place = places.getPlace();
+                var obj={"Latitude":place.geometry.location.lat(),"Longitude":place.geometry.location.lng()};
+                localStorage.setItem("obj1",JSON.stringify(obj));
+                // console.log(place.geometry.location);
                 var address = place.formatted_address;
                 var latitude = place.geometry.location.A;
                 var longitude = place.geometry.location.F;
